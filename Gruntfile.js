@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
     'use strict';
 
@@ -12,6 +12,9 @@ module.exports = function(grunt) {
         },
 
         jshint: {
+            options: {
+                jshintrc: '.jshintrc'
+            },
             all: ['src/**/*.js']
         },
 
@@ -20,7 +23,7 @@ module.exports = function(grunt) {
                 files: ['src/**/*.js'],
                 tasks: ['build'],
                 options: {
-                   spawn: false,
+                    spawn: false
                 }
             }
         }
