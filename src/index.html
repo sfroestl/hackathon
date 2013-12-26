@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>app</title>
+    <meta charset="utf-8">
+    <script src="../dist/build.js"></script>
+</head>
+<body ng-view ng-app="app">
+    <ul ng-controller="app.mainCtrl">
+        <li ng-repeat="item in items">{{item}}</li>
+    </ul>
+</body>
+</html>

@@ -1,6 +1,10 @@
-function helloWorld() {
+(function (sandbox) {
     'use strict';
 
-    return 'helloWorld!';
-}
-helloWorld();
+    sandbox.angular.module('app', [])
+    .controller('app.mainCtrl', function ($scope) {
+        $scope.items = [
+            1, 2, 3, 4, 5, 'alf', 'kerl'
+        ];
+    });
+}(this));

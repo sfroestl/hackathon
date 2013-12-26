@@ -7,7 +7,7 @@ module.exports = function (grunt) {
         concat: {
             dist: {
                 src: ['bower_components/angular/angular.js', 'src/app.js'],
-                dest: 'dist/built.js'
+                dest: 'dist/build.js'
             }
         },
 
@@ -19,12 +19,16 @@ module.exports = function (grunt) {
         },
 
         watch: {
+            options: {
+                spawn: false,
+                livereload: true
+            },
             scripts: {
                 files: ['src/**/*.js'],
-                tasks: ['build'],
-                options: {
-                    spawn: false
-                }
+                tasks: ['build']
+            },
+            templates: {
+                files: ['src/**/*.html']
             }
         }
     });
