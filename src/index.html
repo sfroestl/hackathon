@@ -6,8 +6,16 @@
     <script src="../dist/build.js"></script>
 </head>
 <body ng-view ng-app="app">
-    <ul ng-controller="app.mainCtrl">
-        <li ng-repeat="item in items">{{item}}</li>
-    </ul>
+    <div ng-controller="MainCtrl">
+        <ul>
+            <li ng-repeat="item in items">{{item}}</li>
+        </ul>
+        <p>{{wuppi}} hier is er</p>
+
+        <input ng-model="input"/>
+
+        <p>You typed: {{output}}</p>
+    </div>
+
 </body>
 </html>

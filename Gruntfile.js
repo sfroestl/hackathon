@@ -6,7 +6,7 @@ module.exports = function (grunt) {
 
         concat: {
             dist: {
-                src: ['bower_components/angular/angular.js', 'src/app.js'],
+                src: ['bower_components/angular/angular.js', 'src/**/*.js'],
                 dest: 'dist/build.js'
             }
         },
@@ -30,12 +30,27 @@ module.exports = function (grunt) {
             templates: {
                 files: ['src/**/*.html']
             }
+        },
+
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js',
+                options: {
+                    singleRun: true,
+                    files: [
+                        'dist/build.js',
+                        'bower_components/angular-mocks/angular-mocks.js',
+                        'spec/**/*.spec.js'
+                    ]
+                }
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-karma');
 
     grunt.registerTask('build', [
         'jshint:all',

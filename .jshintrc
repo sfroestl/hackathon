@@ -21,5 +21,16 @@
     "browser": true,
     "jquery": true,
     "devel": true,
-    "white": true
+    "white": true,
+    "predef": [
+        "describe",
+        "beforeEach",
+        "module",
+        "inject",
+        "it",
+        "expect",
+        "iit",
+        "xit",
+        "ddescribe"
+    ]
 }
