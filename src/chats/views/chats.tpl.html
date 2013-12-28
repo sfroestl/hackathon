@@ -1,0 +1,10 @@
+<h1>Chats</h1>
+
+
+<ul>
+    <li ng-repeat="chat in chats"><a ng-href="#/chats/{{chat.id}}">{{chat.title}}</a></li>
+</ul>
+
+
+Details:
+<div ui-view="details"></div>

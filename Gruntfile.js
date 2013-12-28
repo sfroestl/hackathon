@@ -2,11 +2,21 @@ module.exports = function (grunt) {
 
     'use strict';
 
+    var libraries = [
+        'bower_components/angular/angular.js',
+        'bower_components/angular-ui-router/release/angular-ui-router.js'
+    ];
+
+
     grunt.initConfig({
 
         concat: {
+            libraries: {
+                src: libraries,
+                dest: 'dist/libraries.js'
+            },
             dist: {
-                src: ['bower_components/angular/angular.js', 'src/**/*.js'],
+                src: ['src/**/*.js'],
                 dest: 'dist/build.js'
             }
         },
@@ -25,7 +35,7 @@ module.exports = function (grunt) {
             },
             scripts: {
                 files: ['src/**/*.js'],
-                tasks: ['build']
+                tasks: ['default']
             },
             templates: {
                 files: ['src/**/*.html']
@@ -52,8 +62,14 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-karma');
 
+    grunt.registerTask('default', [
+        'jshint:all',
+        'concat:dist'
+    ]);
+
     grunt.registerTask('build', [
         'jshint:all',
+        'concat:libraries',
         'concat:dist'
     ]);
 };
